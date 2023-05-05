@@ -1,0 +1,10 @@
+{
+  "name": "Dictionary",
+  "description": "A dictionary Chrome Extension built with NextJS",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Next.js Extension",
+    "default_popup": "index.html"
+  }
+}
