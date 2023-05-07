@@ -1,3 +1,12 @@
 {
-  "extends": ["next/babel", "next/core-web-vitals"]
+  "extends": ["next/babel", "next/core-web-vitals"],
+  "env": {
+    "browser": true,
+    "chrome": true,
+    "es6": true,
+    "webextensions": true
+  },
+  "globals": {
+    "chrome": true
+}
 }

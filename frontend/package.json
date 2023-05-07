@@ -3,10 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export && mv out/_next out/next && sed -i 's/\\/_next/\\.\\/next/g' out/**.html && mv out/index.html public && rsync -va --delete-after out/next/ public/next/ && rm -rf out && rsync -va --delete-after public/next-assets/ public/extension/",
+    "dev": "npm-watch",
+  "lint:build": "mv out/_next out/assets && sed -i 's/\\\\/_next/\\\\/assets/g' out/**.html",
+  "build": "next build && next export && npm run lint:build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "watch": {
+    "build": {
+      "patterns": [
+        "styles/**",
+        "pages/**",
+        "public/**",
+        "helpers/**",
+        "next.config.js"
+      ],
+      "ignore": [
+        "out",
+        "node_modules",
+        ".next",
+        ".vscode"
+      ],
+      "extensions": [
+        "js",
+        "json"
+      ]
+    }
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -18,5 +40,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.1"
+  },
+  "devDependencies": {
+    "npm-watch": "^0.11.0"
   }
 }

@@ -24,6 +24,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-  width: 500px;
-  min-height: 600px;
+  width: 400px;
+  min-height: 500px;
+  background-color: aliceblue;
 }

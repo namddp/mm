@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 //Connect to MongoDB
 export async function connectDB() {
-    mongoose.connect(process.env.MONGO_CONNECT_URI, {
+    mongoose.connect(process.env.MONGO_CONNECT_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }).then(() => {

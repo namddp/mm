@@ -1,16 +1,16 @@
+import { useEffect, useState } from "react";
 const Home = () => {
+    const [text,setText] = useState("")
+    useEffect(() => {
+        chrome.tabs.executeScript( {
+          target: {tabId: id, allFrames: true},
+            function: "window.getSelection().toString();"
+          }, (selection) => {
+            setText(selection[0])
+          });
+      }, [])
     return (
-        <main>
-            <section>
-                <h1>Hello!</h1>
-                <p>This is a Next.js application. 😎</p>
-            </section>
-            <form >
-                <input type="text" />
-                <h1 className="text-pink-700">Test Tailwind CSS</h1>
-                <button >Submit</button>
-            </form>
-        </main>
+        <div id="output">{text}</div>
     );
 };
 
